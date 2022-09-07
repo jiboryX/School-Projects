@@ -1,0 +1,127 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+class Course {
+public:
+	int courseIdee;
+	int dsID[2];
+	int creds;
+	string roomNum[2];
+	string daysNtimes[3];
+	string whichCampus;
+	int maximumCourseEnrollment;
+	string courseInstructor;
+	int studsNumID;
+	string courseStat;
+
+	void SetCourseID(int courseID) {
+		courseIdee = courseID;
+	}
+	void SetDepartAndSection(int n, int m) {
+		dsID[0] = n;
+		dsID[1] = m;
+	}
+	void SetNumCredits(int credits) {
+		creds = credits;
+	}
+	void SetDaysAndTimes(string a, string s, string d) {
+		daysNtimes[0] = a;
+		daysNtimes[1] = s;
+		daysNtimes[2] = d;
+	}
+	void SetRoomNumber(string a, string b) {
+		roomNum[0] = a;
+		roomNum[1] = b;
+	}
+	void SetMaxCourseEnrollment(int maxCourseEnroll) {
+		maximumCourseEnrollment = maxCourseEnroll;
+	}
+	void SetCampus(string campus) {
+		whichCampus = campus;
+	}
+	void SetInstructor(string instructor) {
+		courseInstructor = instructor;
+	}
+	void SetStudentsEnrolledAndID(int z) {
+		studsNumID = z;
+	}
+	void SetCourseStatus(string courseStatus) {
+		courseStat = courseStatus;
+	}
+
+};
+#include <iostream>
+int main() {
+	int courseID;
+	int depart[2];
+	int credits;
+	std::string daysAndTimes[3] = { "Monday", "Wednesday", "3pm" };
+	string roomNumber[2];
+	int maxCourseEnroll;
+	int numStudents;
+	string courseStatus;
+	string campus;
+	string instructor;
+	Course physics;
+	/*
+	courseID = 41;
+	depart[0] = 51;
+	depart[1] = 25;
+	credits = 4;
+	maxCourseEnroll = 25;
+	campus = "University of Michigan Dearborn";
+	roomNumber[0] = "ELB";
+	roomNumber[1] = "241";
+	numStudents = 10;
+	*/
+	cout << "Enter course ID: " << endl;
+	cin >> courseID;
+	cout << "Enter department number: " << endl;
+	cin >> depart[0];
+	cout << "Enter section number: " << endl;
+	cin >> depart[1];
+	cout << "Enter credits: " << endl;
+	cin >> credits;
+	cout << "Enter maximum course enrollment: " << endl;
+	cin >> maxCourseEnroll;
+	cout << "Enter the campus course will be held on: " << endl;
+	cin >> campus;
+	cout << "Enter the building the room is in: " << endl;
+	cin >> roomNumber[0];
+	cout << "Enter the room number: " << endl;
+	cin >> roomNumber[1];
+	cout << "Enter the number of students in course: " << endl;
+	cin >> numStudents;
+	cout << "Enter the course status (open or closed)";
+	cin >> courseStatus;
+
+
+	
+	physics.courseIdee = courseID;
+	physics.dsID[2] = depart[2];
+	physics.creds = credits;
+	physics.roomNum[2] = roomNumber[2];
+	physics.daysNtimes[3] = daysAndTimes[3];
+	physics.whichCampus = campus;
+	physics.maximumCourseEnrollment = maxCourseEnroll;
+	physics.courseInstructor = instructor;
+	physics.studsNumID = numStudents;
+	physics.courseStat = courseStatus;
+	
+	cout << "Course Identication Number is " << physics.courseIdee << endl;
+	cout << "The Department course ID is " << physics.dsID[0] << "-" << physics.dsID[1] << endl;
+	cout << "Credits for this course are " << physics.creds << endl;
+	cout << "Days and times for this course is " << physics.daysNtimes[0] << " and " << physics.daysNtimes[1] << " at " << physics.daysNtimes[2] << endl;
+	cout << "The room where you meet is " << physics.roomNum[0] << "-" << physics.roomNum[1] << endl;
+	cout << "Maximum course enrollment is " << physics.maximumCourseEnrollment << endl;
+	cout << "Campus on which the course is held is " << physics.whichCampus << endl;
+	cout << "Instructors name for this course is " << physics.courseInstructor << endl;
+	cout << "The amount of students enrolled is " << physics.studsNumID << endl;
+	cout << "The course status is " << physics.courseStat << endl;
+
+
+
+	return 0;
+
+}
