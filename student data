@@ -1,0 +1,74 @@
+// Hussain Aljibory
+
+#include <iomanip>
+#include <fstream>
+#include <iostream>
+using namespace std;
+void readStudentData(ifstream& rss, int scores[], int id[], int& count, bool& tooMany);
+float mean(int scores[], int count);
+void printTable(int score[], int ID[], int count);
+void printGrade(int oneScore, float average);
+int main()
+{
+	int scores[10];
+	int id[10];
+	int count;
+	bool tooMany;
+	ifstream inFile;
+	inFile.open("Hussain Aljibory.txt");
+	readStudentData(inFile, scores, id, count, tooMany);
+	inFile.close();
+	if (tooMany)
+		cout << "\nWarning, some data is missing\n";
+	printTable(scores, id, count);
+	cout << endl;
+	system("Pause");
+	return 0;
+}
+
+void readStudentData(ifstream& rss, int scores[], int id[], int& count, bool& tooMany)
+{
+	tooMany = false;
+	count = 0;
+	while (!rss.eof())
+	{
+		if (count == 10) break;
+		rss >> id[count] >> scores[count];
+		count++;
+	}
+	if (!rss.eof() && count == 10)
+		tooMany = true;
+}
+
+float mean(int scores[], int count)
+{
+	int sum = 0;
+		for (int i = 0; i < count; i++)
+		{
+			sum +=scores[i];
+		}
+		return (float) sum / count;
+}
+
+void printTable(int score[], int id[], int count)
+{
+	float average = mean(score, count);
+	cout << "Average: " << average << endl;
+	cout << "ID\t" << "Score\t" << "Grade" << endl;
+	for (int i = 0; i < count; i++)
+	{
+		cout << id[i] << '\t' << score[i] << '\t';
+		printGrade(score[i], average);
+	}
+
+}
+
+void printGrade(int oneScore, float average)
+{
+	if (oneScore < average + 10 && oneScore > average - 10)
+		cout << "Satisfactory\n";
+	else if (oneScore > average + 10)
+		cout << "Outstanding\n";
+	else
+		cout << "unsatisfactory\n";
+}
