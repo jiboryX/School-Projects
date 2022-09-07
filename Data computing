@@ -1,0 +1,45 @@
+//Hussain Aljibory
+
+#include <iostream>
+using namespace std;
+float computeSum (int numItems) //Function for taking in each items value and computing the sum.
+{
+	float sum;
+	sum = 0.0;
+	int item;
+	for (int count = 0.0; count < numItems; count++) {
+		cout << "Enter a number: ";
+		cin >> item;
+		sum += item;
+	}
+	return sum;
+}
+
+float computeAve(int numItems, float sum)
+{
+	return sum / numItems;
+}
+void printSumAve(int numItems, float sum, float average)
+{
+	cout << "The number of items is " << numItems << endl;
+	cout << "The sum of the data is " << sum << endl;
+	cout << "The average of the date is " << average << endl;
+}
+
+int main()
+{
+	int numItems;
+	float sum;
+	float average;
+	void printSumAve(int numItems, float sum, float average);
+	cout << "Enter number of items: ";
+	cin >> numItems;
+
+	sum = computeSum(numItems);
+	average = computeAve(numItems, sum);
+	printSumAve(numItems, sum, average);
+
+
+
+	return 0;
+}
